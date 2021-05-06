@@ -116,7 +116,7 @@ class RadioButtonRN extends React.Component {
 
 	render() {
 		let { activeIndex, fadeAnim, animations } = this.state;
-        let { boxStyle, style, circleSize, textStyle, data, icon, activeColor, deactiveColor, boxActiveBgColor, boxDeactiveBgColor, box, textColor } = this.props;
+        let { boxStyle, style, circleSize, textStyle, data, icon, activeColor, deactiveColor, boxActiveBgColor, boxDeactiveBgColor, box, textColor, disabled } = this.props;
 
 		return (
             <View style={style}>
@@ -125,6 +125,7 @@ class RadioButtonRN extends React.Component {
                     return (
                         <TouchableOpacity
                             key={index}
+			     disabled={disabled}
                             style={[ box ? styles.productBox : styles.productBoxLess, 
                                 box && {
                                     backgroundColor: activeIndex === index ? boxActiveBgColor : boxDeactiveBgColor,
@@ -247,6 +248,7 @@ RadioButtonRN.propTypes = {
     boxDeactiveBgColor: PropTypes.string,
     textColor: PropTypes.string,
     box: PropTypes.bool,
+    disabled: PropTypes.bool,
 };
 
 RadioButtonRN.defaultProps = {
@@ -265,6 +267,7 @@ RadioButtonRN.defaultProps = {
     boxDeactiveBgColor: '#fff',
     textColor: '#383838',
     box: true,
+    disabled: false,
 };
 
 /* Export Component ============================ */
